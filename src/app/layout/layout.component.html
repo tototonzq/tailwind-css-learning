@@ -1,0 +1,4 @@
+<ng-container *ngIf="layout$ | async as layout">
+  <app-empty *ngIf="layout === Layout.EMPTY"></app-empty>
+  <app-modern *ngIf="layout === Layout.MODERN"></app-modern>
+</ng-container>
