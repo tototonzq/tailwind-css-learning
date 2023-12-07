@@ -1,13 +1,37 @@
 <div
   class="sidebar w-0 overflow-hidden relative transition-all duration-200 ease-in-out translate-x-[-500px] h-screen border-r-[1px] border-[#D0D5DB]"
   [ngClass]="{'active': (isActiveSidebar$ | async)}">
-  <div class="grid place-items-center p-5">
+
+  <!-- Img Profile  -->
+  <div class="grid place-items-center p-5 gap-5">
     <div
       class="icon-container transition-all duration-200 ease-in-out bg-slate-200 w-[10rem] h-[10rem] rounded-full shadow hover:bg-slate-300 cursor-pointer">
     </div>
+
+    <!-- Profile Info  -->
+    <div class="flex flex-col items-center justify-center">
+      <span>แอดมิน</span>
+      <span>นายเจริญ สุข</span>
+    </div>
   </div>
 
-  <div class="controls absolute bottom-0 w-full flex flex-col items-center justify-center p-5 gap-5">
+  <!-- Menu List  -->
+  <div class="h-[35rem] overflow-auto">
+    <ng-container *ngFor="let item of [1, 2, 3]">
+      <div class="w-full flex flex-col items-center justify-center px-5 py-2">
+        <div
+          class="logout-btn bg-slate-100 w-full h-[40px] rounded-md shadow hover:bg-slate-300 transition-all duration-200 ease-in-out">
+          <div
+            class="logout-text flex items-center justify-center mt-2 text-slate-400 hover:text-slate-500 cursor-pointer">
+            <!-- <span>{{item}}</span> -->
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Sign Out  -->
+  <div class="absolute bottom-0 w-full flex flex-col items-center justify-center p-5 gap-5">
     <div (click)="onSignOut()"
       class="logout-btn bg-slate-100 w-full h-[40px] rounded-md shadow hover:bg-slate-300 transition-all duration-200 ease-in-out">
       <div class="logout-text flex items-center justify-center mt-2 text-slate-400 hover:text-slate-500 cursor-pointer">
