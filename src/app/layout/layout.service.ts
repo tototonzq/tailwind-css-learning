@@ -12,7 +12,7 @@ export class LayoutService {
   /* -------------------------------------------------------------------------- */
   /*                                  Variables                                 */
   /* -------------------------------------------------------------------------- */
-  readonly isActiveSidebar$ = new BehaviorSubject<boolean>(false);
+  readonly isActiveSidebar$ = new BehaviorSubject<boolean>(true);
 
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */

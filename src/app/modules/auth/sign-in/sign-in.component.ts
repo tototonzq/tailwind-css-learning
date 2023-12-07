@@ -19,7 +19,7 @@ export class SignInComponent {
   /* -------------------------------------------------------------------------- */
   /*                                   Inject                                   */
   /* -------------------------------------------------------------------------- */
-  private _router = inject(Router);
+  private readonly _router = inject(Router);
 
   /* -------------------------------------------------------------------------- */
   /*                                  Variables                                 */
@@ -38,15 +38,7 @@ export class SignInComponent {
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
-  onSubmit() {
+  onSignIn() {
     this._router.navigate(['dashboard']);
-    // if (this.signInForm.valid) {
-    //   // Form is valid, do something with the data
-    //   this._router.navigate(['dashboard']);
-    //   console.log('Form submitted:', this.signInForm.value);
-    // } else {
-    //   // Form is invalid, mark all controls as touched to display validation errors
-    //   this.signInForm.markAllAsTouched();
-    // }
   }
 }

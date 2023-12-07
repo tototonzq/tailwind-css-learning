@@ -1,9 +1,18 @@
 <div
-  class="w-0 transition-all duration-200 ease-in-out translate-x-[-500px] sidebar h-screen overflow-auto border-r-[1px] border-[#D0D5DB]"
-  [ngClass]="(isActiveSidebar$ | async)  ? 'active' : ''">
-  <div class="grid justify-center items-center p-5">
+  class="sidebar w-0 overflow-hidden relative transition-all duration-200 ease-in-out translate-x-[-500px] h-screen border-r-[1px] border-[#D0D5DB]"
+  [ngClass]="{'active': (isActiveSidebar$ | async)}">
+  <div class="grid place-items-center p-5">
     <div
-      class="transition-all duration-200 ease-in-out bg-slate-200 w-[10rem] h-[10rem] rounded-full shadow-md hover:bg-slate-300 cursor-pointer">
+      class="icon-container transition-all duration-200 ease-in-out bg-slate-200 w-[10rem] h-[10rem] rounded-full shadow hover:bg-slate-300 cursor-pointer">
+    </div>
+  </div>
+
+  <div class="controls absolute bottom-0 w-full flex flex-col items-center justify-center p-5 gap-5">
+    <div (click)="onSignOut()"
+      class="logout-btn bg-slate-100 w-full h-[40px] rounded-md shadow hover:bg-slate-300 transition-all duration-200 ease-in-out">
+      <div class="logout-text flex items-center justify-center mt-2 text-slate-400 hover:text-slate-500 cursor-pointer">
+        <span>ออกจากระบบ</span>
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { LayoutService } from '../../layout.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,7 +24,7 @@ export class SidebarComponent {
   /*                                   Inject                                   */
   /* -------------------------------------------------------------------------- */
   private readonly _LService = inject(LayoutService);
-
+  private readonly _router = inject(Router);
   /* -------------------------------------------------------------------------- */
   /*                                  Variables                                 */
   /* -------------------------------------------------------------------------- */
@@ -38,4 +39,7 @@ export class SidebarComponent {
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
+  onSignOut() {
+    this._router.navigate(['sign-in']);
+  }
 }
