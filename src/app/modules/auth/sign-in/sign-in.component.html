@@ -1,21 +1,18 @@
 <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
   <div
     class="absolute top-[50%] left-[50%] flex text-center gap-5 justify-center items-center flex-col translate-x-[-50%] translate-y-[-50%]">
-    <h1 class="text-[26px] text-slate-500 placeholder:text-slate-500">
-      ลงชื่อเข้าใช้งาน
-    </h1>
+    <div class="h-[20px] w-[160px] bg-gray-200"></div>
     <input formControlName="email"
       class="transition-all duration-200 ease-in-out border-[1px] h-[50px] w-[250px] text-[1rem] outline-none text-center rounded-md hover:w-[300px] cursor-pointer text-slate-500"
-      type="email" placeholder="อีเมล" #user id="email" />
+      type="email" placeholder="" #user id="email" />
     <input formControlName="password"
       class="transition-all duration-200 ease-in-out border-[1px] h-[50px] w-[250px] text-[1rem] outline-none text-center rounded-md hover:w-[300px] cursor-pointer text-slate-500"
-      type="password" placeholder="รหัสผ่าน" #password id="password" />
+      type="password" placeholder="" #password id="password" />
 
     <button
       class="transition-all duration-200 ease-in-out h-[50px] w-[250px] text-[1rem] outline-none text-center rounded-md cursor-pointer text-slate-500 bg-slate-200 hover:bg-slate-100">
-      เข้าสู่ระบบ
     </button>
   </div>
 </form>
 
-<span class="absolute bottom-3 right-3 text-slate-500">version 1.0.0</span>
+<div class="h-[20px] w-[160px] bg-gray-200 absolute bottom-3 right-3"></div>
