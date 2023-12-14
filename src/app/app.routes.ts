@@ -6,8 +6,8 @@ import { DashboardComponent } from './modules/user/dashboard/dashboard.component
 import { BasketComponent } from './modules/user/basket/basket.component';
 import { CssComponent } from './modules/misc/css/css.component';
 import { CustomComponent } from './modules/misc/custom/custom.component';
-import { FormGroupComponent } from './modules/misc/form-group/form-group.component';
-import { FormLearningComponent } from './modules/misc/form-learning/form-learning.component';
+import { FormGroupComponent } from './modules/misc/form-learning/form-group/form-group.component';
+import { FormBuilderComponent } from './modules/misc/form-learning/form-builder/form-builder.component';
 
 export const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'sign-in' },
@@ -41,6 +41,10 @@ export const routes: Route[] = [
       },
     ],
   },
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 MISC ROUTES                                */
+  /* -------------------------------------------------------------------------- */
   {
     path: '',
     component: LayoutComponent,
@@ -59,6 +63,10 @@ export const routes: Route[] = [
       {
         path: 'form-group',
         component: FormGroupComponent,
+      },
+      {
+        path: 'form-builder',
+        component: FormBuilderComponent,
       },
     ],
   },

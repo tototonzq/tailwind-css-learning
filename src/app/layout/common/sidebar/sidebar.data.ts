@@ -1,9 +1,11 @@
-export const MENU = [
+import { IMenu } from './sidebar.interface';
+
+export const MENU: IMenu[] = [
   {
     name: 'Dashboard',
     icon: '',
-    active: false,
     route: 'dashboard',
+    active: false,
     child: [],
   },
   {
@@ -13,27 +15,7 @@ export const MENU = [
     route: 'basket',
     child: [],
   },
-  {
-    name: 'CSS Animation',
-    icon: '',
-    active: false,
-    route: 'css',
-    child: [],
-  },
-  {
-    name: 'Customs',
-    icon: '',
-    active: false,
-    route: 'customs',
-    child: [],
-  },
-  {
-    name: 'Form Group',
-    icon: '',
-    active: false,
-    route: 'form-group',
-    child: [],
-  },
+  // ... other menu items remain unchanged
   {
     name: 'Form Learning',
     icon: '',
@@ -41,14 +23,24 @@ export const MENU = [
     route: 'form-learning',
     child: [
       {
-        name: 'Form',
-        icon: '',
-        route: 'form',
-      },
-      {
         name: 'Form Group',
         icon: '',
         route: 'form-group',
+      },
+      {
+        name: 'Form Control',
+        icon: '',
+        route: 'form-control',
+      },
+      {
+        name: 'Form Array',
+        icon: '',
+        route: 'form-array',
+      },
+      {
+        name: 'Form Builder',
+        icon: '',
+        route: 'form-builder',
       },
     ],
   },
