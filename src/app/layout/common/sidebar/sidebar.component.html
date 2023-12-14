@@ -15,14 +15,20 @@
     </div>
   </div>
 
+  <!-- Search  -->
+  <div class="px-5 py-2">
+    <input class="w-full bg-slate-100 h-[40px] p-5 rounded-md shadow-md" type="text" placeholder="Search" [(ngModel)]="search" (ngModelChange)="onSearch(search)">
+  </div>
+
   <!-- Menu List  -->
   <div class="h-[35rem] overflow-auto">
-    <ng-container *ngFor="let item of [1, 2, 3]">
+    <ng-container *ngFor="let item of menuList">
       <div class="w-full flex flex-col items-center justify-center px-5 py-2">
-        <div
+        <div (click)="onNavigator(item.route)"
           class="shadow-xl bg-slate-100 w-full h-[40px] rounded-md hover:bg-slate-300 transition-all duration-200 ease-in-out">
           <div class="flex items-center justify-center mt-2 text-slate-400 hover:text-slate-500 cursor-pointer">
-            <div class="h-[12px] w-[60px] bg-gray-200"></div>
+            <!-- <div class="h-[12px] w-[60px] bg-gray-200"></div> -->
+            <span>{{item.name}}</span>
           </div>
         </div>
       </div>

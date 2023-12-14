@@ -1,0 +1,46 @@
+<div class="grid grid-cols-2 p-5 gap-5">
+  <div class="col-span-1 gap-5 grid">
+    <p>รายการสินค้า</p>
+    <ng-container *ngFor="let item of STORE_LIST">
+      <div (click)="onAddBasket(item)" class="bg-gray-300 active:bg-black cursor-pointer">
+        <div class="grid grid-cols-3">
+          <div class="grid grid-cols-2">
+            <p>ชื่อสินค้า :</p>
+            <p>{{ item.name }}</p>
+          </div>
+          <div class="grid grid-cols-3">
+            <p>ราคา :</p>
+            <p>{{ item.price }}</p>
+            <p>บาท</p>
+          </div>
+          <div class="grid grid-cols-3">
+            <p>จำนวน :</p>
+            <p>{{ item.amount }}</p>
+            <p>ชิ้น</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div>
+    <div class="col-span-1 gap-5 flex flex-col">
+      <div class="flex justify-between">
+        <p>สินค้าในตะกร้า</p>
+        <p (click)="clearBasket()" class="cursor-pointer">ล้างตะกร้า</p>
+      </div>
+      <ng-container *ngFor="let item of cart">
+        <div (click)="onRemoveBasket(item)" class="bg-gray-300 active:bg-black cursor-pointer">
+          <div class="flex gap-5">
+            <p>ชื่อสินค้า : <span>{{ item.name }}</span></p>
+            <p>ราคา : <span>{{ item.price }}</span></p>
+            <p>จำนวน : <span>{{ item.amount }}</span></p>
+          </div>
+        </div>
+      </ng-container>
+      <div class="flex justify-between bg-gray-300">
+        <span class="h-[5rem]cursor-pointer">ราคาทั้งหมด : {{summery}} บาท</span>
+        <span (click)="onCheckout()" class="cursor-pointer">จ่ายเงิน</span>
+      </div>
+    </div>
+  </div>
+</div>

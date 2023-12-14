@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { LayoutService } from '../../layout.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MENU } from './sidebar.data';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,6 +31,10 @@ export class SidebarComponent {
   /*                                  Variables                                 */
   /* -------------------------------------------------------------------------- */
   readonly date = new Date();
+
+  search: string = '';
+  menuList: any[] = MENU;
+
   readonly isActiveSidebar$ = this._LService.isActiveSidebar$;
   /* -------------------------------------------------------------------------- */
   /*                                 Life Circle                                */
@@ -39,7 +45,20 @@ export class SidebarComponent {
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
+  onNavigator(router: string) {
+    this._router.navigate([router]);
+  }
+
   onSignOut() {
     this._router.navigate(['sign-in']);
+  }
+
+  onSearch(e: string) {
+    this.menuList = [];
+    MENU.filter((item) => {
+      if (item.name.toLowerCase().includes(e.toLowerCase())) {
+        this.menuList.push(item);
+      }
+    });
   }
 }
