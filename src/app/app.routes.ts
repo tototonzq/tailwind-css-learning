@@ -60,10 +60,6 @@ export const routes: Route[] = [
         path: 'form-group',
         component: FormGroupComponent,
       },
-      {
-        path: 'form-learning',
-        component: FormLearningComponent,
-      },
     ],
   },
   { path: '**', redirectTo: 'sign-in' },
