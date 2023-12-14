@@ -44,7 +44,7 @@
           [ngClass]="{'active': menu.active}">
           <ng-container *ngFor="let child of menu.child">
             <div *ngIf="menu.active" (click)="onNavigator(child)"
-              class="flex items-center justify-center mt-2 text-slate-400 hover:bg-slate-300 cursor-pointer">
+              class="flex items-center justify-center py-2 text-slate-400 hover:bg-slate-300 cursor-pointer">
               <span>{{child.name}}</span>
             </div>
           </ng-container>

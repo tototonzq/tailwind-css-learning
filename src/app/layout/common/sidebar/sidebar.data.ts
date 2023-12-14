@@ -42,6 +42,11 @@ export const MENU: IMenu[] = [
         icon: '',
         route: 'form-builder',
       },
+      {
+        name: 'Form Validation',
+        icon: '',
+        route: 'form-validation',
+      }
     ],
   },
 ];

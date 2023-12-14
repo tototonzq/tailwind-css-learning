@@ -23,6 +23,7 @@ import { IMenu } from './sidebar.interface';
       .children-menu {
         &.active {
           height: 10rem;
+          overflow: auto;
           transform: translateY(0);
         }
       }
