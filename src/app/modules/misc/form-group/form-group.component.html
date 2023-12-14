@@ -1,0 +1,24 @@
+<div class="h-[10rem] w-full flex flex-col items-center justify-center bg-gray-200"></div>
+
+
+<form [formGroup]="formGroup">
+  <div class="grid grid-cols-12 gap-4 p-4">
+    <div class="col-span-5">
+      <span>Name <span>*</span></span>
+      <input formControlName="name" type="text" class="w-full bg-slate-100 h-[40px] p-5 rounded-md shadow-md" />
+    </div>
+    <div class="col-span-5">
+      <span>Age <span>*</span></span>
+      <input formControlName="age" type="text" class="w-full bg-slate-100 h-[40px] p-5 rounded-md shadow-md" />
+    </div>
+    <div class="col-span-2">
+      <span>Manager </span>
+      <button
+        class="w-full bg-slate-100 h-[40px] rounded-md shadow-md hover:bg-slate-300 duration-200 ease-in-out transition-all">
+        <span>Click</span>
+      </button>
+    </div>
+  </div>
+</form>
+
+<pre>{{ formGroup.value | json }}</pre>

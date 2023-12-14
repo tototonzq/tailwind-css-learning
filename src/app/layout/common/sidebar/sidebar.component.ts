@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { LayoutService } from '../../layout.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MENU } from './sidebar.data';
 import { BehaviorSubject } from 'rxjs';
+import { IMenu } from './sidebar.interface';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,6 +17,13 @@ import { BehaviorSubject } from 'rxjs';
         &.active {
           width: 20rem;
           transform: translateX(0);
+        }
+      }
+
+      .children-menu {
+        &.active {
+          height: 10rem;
+          transform: translateY(0);
         }
       }
     `,
@@ -33,7 +41,7 @@ export class SidebarComponent {
   readonly date = new Date();
 
   search: string = '';
-  menuList: any[] = MENU;
+  menuList: IMenu[] = MENU;
 
   readonly isActiveSidebar$ = this._LService.isActiveSidebar$;
   /* -------------------------------------------------------------------------- */
@@ -45,8 +53,12 @@ export class SidebarComponent {
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
-  onNavigator(router: string) {
-    this._router.navigate([router]);
+  onNavigator(router: IMenu) {
+    if (router.child && router.child.length > 0) {
+      router.active = !router.active;
+    } else {
+      this._router.navigate([router.route]);
+    }
   }
 
   onSignOut() {
