@@ -6,91 +6,100 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-12 gap-5 p-5">
-    <div class="col-span-4">
-      <span>First Name <span>*</span></span>
-      <input formControlName="firstName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
-        type="text" placeholder="กรุณากรอกข้อมูล">
+  <div class="border border-gray-200 rounded-md m-5">
+    <div class="grid grid-cols-12 gap-5 p-5">
+      <div class="col-span-4">
+        <span>First Name <span>*</span></span>
+        <input formControlName="firstName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+          type="text" placeholder="กรุณากรอกข้อมูล">
+      </div>
+      <div class="col-span-4">
+        <span>Last Name <span>*</span></span>
+        <input formControlName="lastName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+          type="text" placeholder="กรุณากรอกข้อมูล">
+      </div>
+      <div class="col-span-2">
+        <span>Age <span>*</span></span>
+        <input formControlName="age" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+          type="text" placeholder="กรุณากรอกข้อมูล">
+      </div>
+      <div class="col-span-2">
+        <span>Manager</span>
+        <button (click)="onAddFormOther()"
+          class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
+          + ADD
+        </button>
+      </div>
     </div>
-    <div class="col-span-4">
-      <span>Last Name <span>*</span></span>
-      <input formControlName="lastName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
-        type="text" placeholder="กรุณากรอกข้อมูล">
-    </div>
-    <div class="col-span-2">
-      <span>Age <span>*</span></span>
-      <input formControlName="age" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
-        type="text" placeholder="กรุณากรอกข้อมูล">
-    </div>
-    <div class="col-span-2">
-      <span>Manager</span>
-      <button (click)="onAddFormOther()"
-        class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
-        + ADD
-      </button>
-    </div>
-  </div>
 
-  <div class="p-5">
-    <div class="border border-gray-200 rounded-md max-h-[40rem] overflow-auto">
+    <div class="p-5">
+      <div class="border border-gray-200 rounded-md max-h-[40rem] overflow-auto">
 
-      <!-- Others FormArray -->
-      <div formArrayName="other">
-        <div *ngFor="let control of other.controls; let i = index" [formGroupName]="i">
-          <div class="grid grid-cols-12 gap-5 p-5">
-            <div class="col-span-10">
-              <span>Address <span>*</span></span>
-              <input formControlName="address"
-                class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
-                placeholder="กรุณากรอกข้อมูล">
+        <!-- Others FormArray -->
+        <div formArrayName="other">
+          <div *ngFor="let others of other.controls; let i = index" [formGroupName]="i">
+            <div class="grid grid-cols-12 gap-5 p-5">
+              <div class="col-span-10">
+                <span>Address <span>*</span></span>
+                <input formControlName="address"
+                  class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
+                  placeholder="กรุณากรอกข้อมูล">
+              </div>
+              <div class="col-span-2">
+                <span>Manager</span>
+                <button (click)="onAddFormPhone(i)"
+                  class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
+                  + ADD
+                </button>
+              </div>
             </div>
-            <div class="col-span-2">
-              <span>Manager</span>
-              <button (click)="onAddFormPhone(i)"
-                class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
-                + ADD
-              </button>
-            </div>
-          </div>
 
-          <!-- Phone FormArray -->
-          <div formArrayName="phone">
-            <div *ngFor="let telControl of phoneIndex(i).controls; let j = index" [formGroupName]="j">
-              <div class="grid grid-cols-12 gap-5 p-5">
-                <div class="col-span-10 max-h-[30rem] overflow-auto">
-                  <div class="w-full grid gap-5">
+            <!-- Phone FormArray -->
+            <div formArrayName="phone">
+              <div *ngFor="let phones of phoneIndex(i).controls; let j = index" [formGroupName]="j">
+                <div class="grid grid-cols-12 gap-5 p-5">
+                  <div class="col-span-10">
+                    <div class="w-full grid gap-5 border border-gray-200 rounded-md p-5 max-h-[30rem] overflow-auto">
 
-                    <div>
-                      <span>Phone <span>*</span></span>
-                      <input formControlName="phoneNumber"
-                        class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
-                        placeholder="กรุณากรอกข้อมูล">
-                    </div>
-
-                    <!-- Region FormArray -->
-                    <div formArrayName="phoneRegion" class="grid grid-cols-12 gap-5">
-                      <div class="col-span-12"
-                        *ngFor="let regionControl of phoneRegionIndex(i, j).controls; let k = index"
-                        [formGroupName]="k">
-                        <span>Region <span>*</span></span>
-                        <input formControlName="region"
+                      <div>
+                        <span>Phone <span>*</span></span>
+                        <input formControlName="phoneNumber"
                           class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
                           placeholder="กรุณากรอกข้อมูล">
                       </div>
-                    </div>
 
+                      <!-- Region FormArray -->
+                      <div formArrayName="phoneRegion"
+                        class="grid grid-cols-12 gap-5 border border-gray-200 rounded-md p-5">
+                        <ng-container *ngFor="let regions of phoneRegionIndex(i, j).controls; let k = index"
+                          [formGroupName]="k">
+                          <div class="col-span-12">
+                            <span>Region <span>*</span></span>
+                            <input formControlName="region"
+                              class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
+                              placeholder="กรุณากรอกข้อมูล">
+                          </div>
+                        </ng-container>
+                        <ng-container *ngIf="phoneRegionIndex(i, j).controls.length === 0">
+                          <div>No data</div>
+                        </ng-container>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-span-2">
-                  <span>Manager</span>
-                  <button (click)="onAddFormRegion(i, j)"
-                    class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
-                    + ADD
-                  </button>
+                  <div class="col-span-2">
+                    <span>Manager</span>
+                    <button (click)="onAddFormRegion(i, j)"
+                      class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
+                      + ADD
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <ng-container *ngIf="other.controls.length === 0">
+            <div class="p-5">No data</div>
+          </ng-container>
         </div>
       </div>
     </div>

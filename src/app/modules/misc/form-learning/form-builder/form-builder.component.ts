@@ -38,8 +38,9 @@ export class FormBuilderComponent implements OnInit {
   /*                                 life circle                                */
   /* -------------------------------------------------------------------------- */
   ngOnInit(): void {
-    this.onAddFormOther();
-    this.onAddFormPhone(0);
+    // this.onAddFormOther();
+    // this.onAddFormPhone(0);
+    // this.onAddFormRegion(0, 0);
   }
 
   /* -------------------------------------------------------------------------- */
