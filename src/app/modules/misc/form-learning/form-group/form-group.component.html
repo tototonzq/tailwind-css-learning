@@ -1,1 +1,58 @@
-<p>form-group works!</p>
+<form [formGroup]="formGroup">
+
+  <div class="p-5">
+    <div class="border border-gray-200 rounded-md h-[20rem] overflow-auto">
+      <pre class="p-3">{{ formGroup.value | json }}</pre>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-5 p-5">
+    <div class="col-span-4">
+      <span>First Name <span>*</span></span>
+      <input formControlName="firstName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+        type="text" placeholder="กรุณากรอกข้อมูล">
+    </div>
+    <div class="col-span-4">
+      <span>Last Name <span>*</span></span>
+      <input formControlName="lastName" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+        type="text" placeholder="กรุณากรอกข้อมูล">
+    </div>
+    <div class="col-span-2">
+      <span>Age <span>*</span></span>
+      <input formControlName="age" class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md"
+        type="text" placeholder="กรุณากรอกข้อมูล">
+    </div>
+    <div class="col-span-2">
+      <span>Manager</span>
+      <button (click)="onAddFormGroupChild()"
+        class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
+        + ADD
+      </button>
+    </div>
+  </div>
+
+  <div class="p-5">
+    <div class="border border-gray-200 rounded-md">
+      <div formArrayName="detail" class="h-[20rem] overflow-auto">
+        <div *ngFor="let control of detail.controls; let i = index" [formGroupName]="i">
+          {{ i }}
+          <div class="grid grid-cols-12 gap-5 p-5">
+            <div class="col-span-10">
+              <span>Address <span>*</span></span>
+              <input formControlName="address"
+                class="w-full bg-slate-100 h-[40px] outline-none p-5 rounded-md shadow-md" type="text"
+                placeholder="กรุณากรอกข้อมูล">
+            </div>
+            <div class="col-span-2">
+              <span>Manager</span>
+              <button (click)="onAddFormGroupPhone(i)"
+                class="w-full bg-slate-100 hover:bg-gray-300 duration-300 transition-all ease-in-out h-[40px] rounded-md shadow-md">
+                + ADD
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
