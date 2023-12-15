@@ -49,4 +49,38 @@ export const MENU: IMenu[] = [
       },
     ],
   },
+  {
+    name: 'Table Learning',
+    icon: '',
+    active: false,
+    route: 'table-learning',
+    child: [],
+  },
+  {
+    name: 'Chart Learning',
+    icon: '',
+    active: false,
+    route: 'chart-learning',
+    child: [],
+  },
+  {
+    name: 'Map Learning',
+    icon: '',
+    active: false,
+    route: 'map-learning',
+    child: [],
+  },
+  {
+    name: 'Example Learning',
+    icon: '',
+    active: false,
+    route: 'example-learning',
+    child: [
+      {
+        name: 'Store',
+        icon: '',
+        route: 'store',
+      },
+    ],
+  },
 ];

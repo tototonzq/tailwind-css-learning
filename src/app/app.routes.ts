@@ -8,9 +8,13 @@ import { CssComponent } from './modules/misc/css/css.component';
 import { CustomComponent } from './modules/misc/custom/custom.component';
 import { FormGroupComponent } from './modules/misc/form-learning/form-group/form-group.component';
 import { FormBuilderComponent } from './modules/misc/form-learning/form-builder/form-builder.component';
+import { StoreComponent } from './modules/user/store/store.component';
 
 export const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'sign-in' },
+  /* -------------------------------------------------------------------------- */
+  /*                                 AUTH ROUTES                                */
+  /* -------------------------------------------------------------------------- */
   {
     path: '',
     component: LayoutComponent,
@@ -24,6 +28,10 @@ export const routes: Route[] = [
       },
     ],
   },
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 USER ROUTES                                */
+  /* -------------------------------------------------------------------------- */
   {
     path: '',
     component: LayoutComponent,
@@ -38,6 +46,10 @@ export const routes: Route[] = [
       {
         path: 'basket',
         component: BasketComponent,
+      },
+      {
+        path: 'store',
+        component: StoreComponent,
       },
     ],
   },
